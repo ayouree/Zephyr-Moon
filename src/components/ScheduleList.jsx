@@ -1,0 +1,29 @@
+import React from "react";
+
+const ScheduleList = ({schedule}) => {
+  if (!Array.isArray(schedule) || schedule.length === 0) {
+    return <p>No schedule found.</p>;
+  }
+
+  return (
+    <div className="grid grid-cols-1 gap-4">
+      {schedule.map((item, i) => (
+        <div key={i} className="bg-gray-800 p-4 rounded-lg shadow-md">
+          <h3 className="text-lg font-bold">{item.showInfo}</h3>
+          <p className="text-sm text-gray-400">Setlist: {item.setlist}</p>
+          <p className="text-sm text-gray-400">Time: {item.showInfo.split(' ')[2]}</p>
+          <p className="text-sm text-gray-400">Members:</p>
+          <ul className="list-disc list-inside">
+            {item.members.map((member, index) => (
+              <li key={index} className="text-gray-300">
+                {member}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ScheduleList;

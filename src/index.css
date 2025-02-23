@@ -1,5 +1,20 @@
-
 @tailwind base; @tailwind components; @tailwind utilities;
 body{
   background-color: #242424;
+  overflow:hidden; /* Menghilangkan scrollbar */
+}
+
+html, body {
+  height: 100%; /* Pastikan body mengambil seluruh tinggi */
+  overflow: hidden; /* Sembunyikan scrollbar */
+}
+
+.wrapper {
+  height: 100%; /* Pastikan wrapper mengambil seluruh tinggi */
+  overflow-y: scroll; /* Izinkan scroll vertikal */
+  scrollbar-width: none; /* Untuk Firefox */
+}
+
+.wrapper::-webkit-scrollbar {
+  display: none; /* Untuk Chrome, Safari, dan Edge */
 }

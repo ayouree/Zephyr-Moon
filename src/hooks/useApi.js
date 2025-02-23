@@ -11,7 +11,7 @@ const useApi = (endpoint) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const url = `${import.meta.env.VITE_API_URL}/${endpoint}`;
+        const url = `${import.meta.env.VITE_API_URL}${endpoint}`;
         const response = await axios.get(url);
         console.log(response.data); // Log the response data
 
@@ -19,6 +19,8 @@ const useApi = (endpoint) => {
           setData(response.data.members ? response.data.members.member : []);
         } else if (endpoint === "schedule") {
           setData(response.data); // Assuming response.data is the array of schedules
+        } else if (endpoint === "news") {
+          setData(response.data ? response.data.berita : []); // Assuming response.data is the array of schedules
         } else {
           setData(response.data); // For other endpoints, save data directly
         }
